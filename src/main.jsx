@@ -10,11 +10,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Hero from "./Component/Hero/Hero.jsx";
+import ContactPage from "./Component/contact/contact.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Hero />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Route>
   )
 );

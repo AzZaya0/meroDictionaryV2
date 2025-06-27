@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import logo from '../../assets/logo.png';
+import { Link } from "react-router-dom";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -9,22 +10,25 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-blue-600">YourBrand</span>
-          </div>
+        
+            {/* <span className="text-xl font-bold text-blue-600">YourBrand</span> */}
+         <Link to={'/'}>
+          
+            <img className="h-[70px] py-4" src={logo} alt="logo" />
+          </Link> 
+        
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex space-x-6">
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition">Home</a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition">Services</a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition">Portfolio</a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition">Contact</a>
+            <Link  to={'/'} className="text-gray-600 hover:text-green-500 transition">Home</Link>
+
+            <Link to={'/contact'} className="text-gray-600 hover:text-green-500 transition">Contact</Link>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <a href="#" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-              Get Started
+            <a href="https://merovision.com/" target="blank" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+              Visit Mero Vision
             </a>
           </div>
 
@@ -58,11 +62,10 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden px-4 pt-4 pb-6 space-y-2">
           <a href="#" className="block text-gray-600 hover:text-blue-600">Home</a>
-          <a href="#" className="block text-gray-600 hover:text-blue-600">Services</a>
-          <a href="#" className="block text-gray-600 hover:text-blue-600">Portfolio</a>
+
           <a href="#" className="block text-gray-600 hover:text-blue-600">Contact</a>
-          <a href="#" className="block mt-2 bg-blue-600 text-white px-4 py-2 rounded-md text-center hover:bg-blue-700">
-            Get Started
+          <a href="https://merovision.com/" target="blank"  className="block mt-2 bg-blue-600 text-white px-4 py-2 rounded-md text-center hover:bg-blue-700">
+             Visit Mero Vision
           </a>
         </div>
       )}

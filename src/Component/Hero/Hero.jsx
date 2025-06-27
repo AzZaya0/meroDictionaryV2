@@ -139,11 +139,12 @@ export default function Hero() {
               src={image}
               autoPlay
               muted
+              loop
               playsInline
+              preload="auto"
             ></video>
           </div>
         ) : (
-       
           <div
             className={`w-full md:w-[50%] mx-auto bg-[#5d9c67]  text-white p-6 rounded-3xl shadow-2xl ${
               endAnimation ? "animate-entry" : ""
@@ -200,7 +201,6 @@ export default function Hero() {
               )}
             </AnimatePresence>
           </div>
-       
         )}
       </div>
     </section>

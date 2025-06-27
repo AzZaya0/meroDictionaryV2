@@ -61,9 +61,9 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pt-4 pb-6 space-y-2">
-          <a href="#" className="block text-gray-600 hover:text-blue-600">Home</a>
+          <Link to={'/'} className="block text-gray-600 hover:text-blue-600">Home</Link>
 
-          <a href="#" className="block text-gray-600 hover:text-blue-600">Contact</a>
+          <Link to={'/contact'} className="block text-gray-600 hover:text-blue-600">Contact</Link>
           <a href="https://merovision.com/" target="blank"  className="block mt-2 bg-blue-600 text-white px-4 py-2 rounded-md text-center hover:bg-blue-700">
              Visit Mero Vision
           </a>

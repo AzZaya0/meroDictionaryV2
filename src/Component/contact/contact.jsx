@@ -1,10 +1,37 @@
-import React from 'react';
+import { useAnimate } from "motion/react";
+import React, { useEffect } from "react";
 
 export default function ContactPage() {
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    const sequence = async () => {
+      await new Promise((res) => setTimeout(res, 1000));
+      await animate(scope.current, {
+        x: 100,
+        opacity: 1,
+        transition: { duration: 1 },
+      });
+      await animate(
+        scope.current,
+        {
+          y: [0, -15, 0],
+        },
+         { duration: 3, ease: "easeInOut",repeat:Infinity }
+      );
+    };
+    sequence();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#000] flex items-center justify-center p-6">
       <div className="w-full max-w-4xl  backdrop-blur-md border border-white/20 rounded-2xl p-10 text-white shadow-xl">
-        <h1 className="text-4xl font-bold mb-8 text-center text-green-400">Let's Talk</h1>
+        <h1
+          ref={scope}
+          className="text-4xl font-bold mb-8 text-center text-green-400"
+        >
+          Let's Talk
+        </h1>
 
         <div className="grid  grid-cols-1 md:grid-cols-2 gap-8">
           {/* Form Section */}
@@ -47,9 +74,12 @@ export default function ContactPage() {
           {/* Info Section */}
           <div className="flex flex-col justify-center space-y-6">
             <div>
-              <h2 className="text-lg font-semibold text-green-400">Contact Info</h2>
+              <h2 className="text-lg font-semibold text-green-400">
+                Contact Info
+              </h2>
               <p className="text-sm mt-2 text-gray-300">
-                We're here to help! Reach out to us anytime and we'll happily answer your questions.
+                We're here to help! Reach out to us anytime and we'll happily
+                answer your questions.
               </p>
             </div>
 

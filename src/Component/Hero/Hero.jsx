@@ -5,7 +5,7 @@ import { getWordOfTheDay, searchWord } from "../../services/api";
 
 import WordOfTheDayContent from "./WordOfTheDayContent";
 // eslint-disable-next-line no-unused-vars
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useAnimate } from "motion/react";
 import debounce from "../../services/customhooks/debouncer";
 
 export default function Hero() {
@@ -16,7 +16,6 @@ export default function Hero() {
   const [searchData, setSearchData] = useState([]);
   const [query, setQuery] = useState("");
   const [cardTitle, setCardTitle] = useState("Word of the Day");
-
   const fetchWordOfTheDay = async () => {
     const data = await getWordOfTheDay();
     console.log(data.data.data);
@@ -145,7 +144,7 @@ export default function Hero() {
             ></video>
           </div>
         ) : (
-          <div
+          <div 
             className={`w-full md:w-[50%] mx-auto bg-[#5d9c67]  text-white p-6 rounded-3xl shadow-2xl ${
               endAnimation ? "animate-entry" : ""
             }`}
